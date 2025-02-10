@@ -16,7 +16,7 @@ async def setup_scheduler():
 
     scheduler.add_job(
         send_day_notification,
-        trigger=CronTrigger(day="*"),
+        trigger=CronTrigger(day="*", hour=12),
         id="day_task",
         replace_existing=True,
     )
