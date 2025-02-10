@@ -8,3 +8,7 @@ bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 dp.include_router(start_router)
+
+
+async def start_bot():
+    await dp.start_polling(bot)

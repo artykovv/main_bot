@@ -16,18 +16,10 @@ async def setup_scheduler():
 
     scheduler.add_job(
         send_day_notification,
-        trigger=CronTrigger(minute="*"),
-        id="minute_task",
+        trigger=CronTrigger(day="*"),
+        id="day_task",
         replace_existing=True,
     )
-
-
-    # scheduler.add_job(
-    #     send_day_notification,
-    #     trigger=CronTrigger(day="*"),
-    #     id="day_task",
-    #     replace_existing=True,
-    # )
 
     scheduler.add_job(
         send_end_month_notification,
