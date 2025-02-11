@@ -16,14 +16,14 @@ async def setup_scheduler():
 
     scheduler.add_job(
         send_day_notification,
-        trigger=CronTrigger(day="*", hour=12),
+        trigger=CronTrigger(hour=12, timezone=pytz.timezone('Asia/Bishkek')),
         id="day_task",
         replace_existing=True,
     )
 
     scheduler.add_job(
         send_end_month_notification,
-        trigger=CronTrigger(day="last", hour="23, 0"),
+        trigger=CronTrigger(day="last", hour="23, 0", timezone=pytz.timezone('Asia/Bishkek')),
         id="end_month_task",
         replace_existing=True,
     )
